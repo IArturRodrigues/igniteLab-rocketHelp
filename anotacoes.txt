@@ -1,0 +1,67 @@
+expo init nomeDoProjeto
+escolher opção minimal
+
+para configurar o typescript {
+   troque o App.js para App.tsx
+   crie um arquivo de configurações do typescript (tsconfig.json)
+   rode o comando expo start
+   quando ele perguntar se quer instalar o typescript basta apertar y (yes) e toda a configuração estará feita
+}
+
+usando native base {
+   yarn add native-base
+   expo install react-native-svg
+   expo install react-native-safe-area-context
+
+   No App.tsx {
+      import { NativeBaseProvider } from 'native-base';
+
+      export default function App () {
+         <NativeBaseProvider>
+            // colocar os componentes que terão acesso ao native base aqui dentro
+         </NativeBaseProvider>
+      }
+   }
+}
+
+usando fonts no react native com expo {
+   basta colocar o comando: expo install expo-font @expo-google-fonts/(nomeDaFonte)
+
+   no App.tsx {
+      import { useFonts, Font400, Font500 } from '@expo-google-fonts/(nomeDaFonte)';
+
+      export function App () {
+         const [fontsLoaded] = useFonts({ Font400, Font500 });
+
+         if (!fontsLoaded) {
+            return <Loading />;
+         }
+
+         return (
+            <Components />
+         );
+
+         /* OU */
+
+         return (
+            { fontsLoaded ? <Component(s) /> : <Loading /> }
+         );
+      }
+   }
+}
+
+utilizando svg como component {
+   yarn add -D react-native-svg-transformer
+
+   caso nao esteja utilizando o NativeBase instalar também: expo install react-native-svg
+
+   criar um arquivo para definir módulos svg {
+      // svg.d.ts
+      declare module '*.svg' {
+         import React from 'react';
+         import { SvgProps } from 'react-native-svg';
+         const content: React.FC<SvgProps>;
+         export default content;
+      }
+   }
+}
