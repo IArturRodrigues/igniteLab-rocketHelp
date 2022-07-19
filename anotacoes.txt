@@ -8,6 +8,40 @@ para configurar o typescript {
    quando ele perguntar se quer instalar o typescript basta apertar y (yes) e toda a configuração estará feita
 }
 
+eslint {
+   yarn create @eslint/config
+   com prettier: yarn add -D eslint-config-prettier
+
+   colocar "plugin:prettier/recommended" como ultimo extends
+   o que esse negocio faz {
+      "extends": ["prettier"],
+      "plugins": ["prettier"],
+      "rules": {
+         "prettier/prettier": "error",
+         "arrow-body-style": "off",
+         "prefer-arrow-callback": "off"
+      }
+   }
+
+   crie o arquivo .prettierrc
+   configs usadas {
+      "tabWidth": 3,
+      "trailingComma": "es5",
+      "arrowParens": "always",
+      "semi": true,
+      "singleQuote": true,
+      "useTabs": true,
+      "jsxSingleQuote": false,
+      "endOfLine": "auto",
+      "printWidth": 100
+   }
+
+   criar uma pasta .vscode com o arquivo settings.json {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+   }
+}
+
 usando native base {
    yarn add native-base
    expo install react-native-svg
