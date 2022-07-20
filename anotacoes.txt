@@ -1,5 +1,8 @@
 expo init nomeDoProjeto
 escolher opção minimal
+funções iniciadas com handle se referem a funções que são disparadas por ações do usuário
+
+pode ocorrer erros de performance no rn quando um estado é atualizado na hora que o componente desmonta
 
 para configurar o typescript {
    troque o App.js para App.tsx
@@ -97,5 +100,61 @@ utilizando svg como component {
          const content: React.FC<SvgProps>;
          export default content;
       }
+   }
+}
+
+usando o firebase {
+   yarn add @react-native-firebase/app
+
+   adicione ao app.json {
+      "expo": {
+         ...,
+         "plugins": [
+            "@react-native-firebase/app"
+         ],
+         "android": {
+            "package": "nome.do.pacote", // estilo pacotes do java
+            "googleServicesFile": "./google-services.json"
+         },
+         "ios": {
+            "bundleIdentifier": "nome.do.pacote", // é bom que seja o mesmo pra android e iOS
+            "googleServicesFile": "./GoogleService-Info.plist"
+         }
+      }
+   }
+
+   no firebase {
+      na aba visão geral do projeto {
+         adicione o firebase ao android e ao iOS na parte onde fala "Comece adicionando o firebase ao seu app"
+         coloque o nome do pacote // ele pode ser gerado/alterado dando o comando do expo que foi deixado no final porem dessa forma vai dar erro
+         apelido (opcional) // pode usar o nome da própria plataforma para poder identificar mais facilmente as configurações
+         código na loja de aplicativos [iOS] / Certificado de assinatura de depuração [Android] (opcional)
+         faça o download do GoogleService-Info.plist [iOS] / google-services.json [Android] e coloque na raiz do projeto
+         // agora virão etapas de configuração manual, se não estiver utilizando o expo basta seguir cada uma
+      }
+
+      configure a parte de autenticação e do firestore
+   }
+
+   apos isso coloque o comando no terminal: expo prebuild
+
+   para configurar o firebase com iOS tem informações na lib que conecta react native com firebase
+
+   obs {
+      baixe apenas os módulos que serão utilizados
+
+      nesse app foram usados:
+      yarn add @react-native-firebase/firestore
+      yarn add @react-native-firebase/auth
+
+      como o expo go ainda não tem compatibilidade total com o firebase teremos que rodar ele de outra forma
+      use o comando: expo run:android
+   }
+
+   links {
+      criar um novo projeto em: https://firebase.google.com
+      lib/doc para firebase com react native: https://rnfirebase.io
+      doc expo: https://docs.expo.dev/guides/config-plugins/
+      doc firebase com expo: https://docs.expo.dev/guides/setup-native-firebase/
    }
 }
