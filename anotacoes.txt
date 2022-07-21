@@ -158,3 +158,11 @@ usando o firebase {
       doc firebase com expo: https://docs.expo.dev/guides/setup-native-firebase/
    }
 }
+
+melhoras que podem ser feitas {
+   adicionar tela de cadastro
+   adicionar novas funcionalidades
+
+   adicionar libs de validação como yup ou zod
+   talvez usar libs para formulário como react hook form
+}

@@ -119,6 +119,7 @@ function Details() {
 				<CardDetails
 					title="solução"
 					icon={CircleWavyCheck}
+					description={order.status === 'closed' && order.solution}
 					footer={order.closed && `Encerrado em ${order.closed}`}
 				>
 					{order.status === 'open' && (

@@ -43,7 +43,7 @@ function Register() {
 
 	return (
 		<VStack flex={1} p={6} bg="gray.600">
-			<Button title="Solicitação" />
+			<Header title="Solicitação" />
 
 			<Input placeholder="Número do patrimônio" mt={4} onChangeText={setPatrimony} />
 
