@@ -29,6 +29,13 @@
             {
               "client_id": "519434184519-epian27j8esp64prbg4kua6isq88tku2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "519434184519-i3gn8ssn3al897gmobhnv0482pacp4vn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rockethelp"
+              }
             }
           ]
         }
